@@ -9,6 +9,7 @@ Ciertas operaciones en Spark pueden acelerarse haciendo uso de GPUs gracias a la
 ### Ejecutar Spark (PySpark)
 - PySpark en CPU: ejecutar [`spark-cpu.sh`](https://github.com/pablodll/Spark-RAPIDS/blob/main/spark-cpu.sh)
 - PySpark en GPU: ejecutar [`spark-gpu.sh`](https://github.com/pablodll/Spark-RAPIDS/blob/main/spark-gpu.sh)
+- Para cargar los ficheros de python y usarlos en spark: `exec(open("file").read())`
 
 ### Generación de datos sintéticos
 - Ejecutar desde PySpark el método `datagen()` de [`datagen.py`](https://github.com/pablodll/Spark-RAPIDS/blob/main/datagen.py) especificando el número de líneas a generar, para obtener un dataframe de datos sintéticos siguiendo el esquema especificado en [`schema.json`](https://github.com/pablodll/Spark-RAPIDS/blob/main/schema.json) y escribirlo en disco usando el formato _csv_. 
