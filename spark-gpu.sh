@@ -1,0 +1,1 @@
+./spark-3.2.1-bin-hadoop3.2/bin/pyspark --num-executors=2 --conf spark.executor.resource.gpu.amount=1 --conf spark.plugins=com.nvidia.spark.SQLPlugin --jars 'rapids-4-spark_2.12-22.04.0.jar,cudf-22.04.0.jar'

@@ -1,0 +1,45 @@
+{
+    "fields": [{
+            "metadata": {},
+            "name": "fn_periodo",
+            "nullable": true,
+            "type": "decimal(10,0)"
+        }, {
+            "metadata": {},
+            "name": "cod_entidad_or",
+            "nullable": true,
+            "type": "string"
+        }, {
+            "metadata": {},
+            "name": "cod_operacion",
+            "nullable": true,
+            "type": "string"
+        }, {
+            "metadata": {},
+            "name": "cod_persona",
+            "nullable": true,
+            "type": "string"
+        }, {
+            "metadata": {},
+            "name": "cod_naturaleza_intervencion",
+            "nullable": true,
+            "type": "string"
+        }, {
+            "metadata": {},
+            "name": "cod_situacion_relacion",
+            "nullable": true,
+            "type": "string"
+        }, {
+            "metadata": {},
+            "name": "cod_convenio_acree",
+            "nullable": true,
+            "type": "string"
+        }, {
+            "metadata": {},
+            "name": "filler",
+            "nullable": true,
+            "type": "string"
+        }
+    ],
+    "type": "struct"
+}
