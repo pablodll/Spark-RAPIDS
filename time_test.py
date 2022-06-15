@@ -17,7 +17,7 @@ class time_test:
         end = time.time()
         print(end - start)
         self.write_file("READ: " + str(end-start) + "\n")
-        return df
+        return self.df
 
     def show_time(self):
         start = time.time()
@@ -40,9 +40,9 @@ class time_test:
         self.write_file("SELECT SHOW: " + str(end-start) + "\n")
         print(end - start)
 
-    def distinct_show_time(self, col):
+    def distinct_show_time(self):
         start = time.time()
-        self.df.select(col).distinct().show()
+        self.df.distinct().show()
         end = time.time()
         self.write_file("DISTINCT SHOW: " + str(end-start) + "\n")
         print(end -start)
@@ -54,9 +54,9 @@ class time_test:
         self.write_file("SELECT COUNT: " + str(end-start) + "\n")
         print(end - start)
 
-    def distinct_count_time(self, col):
+    def distinct_count_time(self):
         start = time.time()
-        self.df.select(col).distinct().count()
+        self.df..distinct().count()
         end = time.time()
         self.write_file("DISTINCT COUNT: " + str(end-start) + "\n")
         print(end -start)
