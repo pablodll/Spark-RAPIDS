@@ -1,5 +1,4 @@
 import time
-
 class time_test:
     
     def __init__(self, log_path, dataframe=None):
