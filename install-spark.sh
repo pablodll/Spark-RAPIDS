@@ -9,3 +9,6 @@ tar xf spark-3.2.1-bin-hadoop3.2.tgz
 pip install git+https://github.com/databrickslabs/dbldatagen
 pip install numpy
 pip install pandas
+
+ufw allow 4040
+ufw allow 4041
