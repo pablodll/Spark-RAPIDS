@@ -13,7 +13,7 @@ class time_test:
 
     def read_time(self, path, format_='csv'):
         start = time.time()
-        df = spark.read.load(path, format=format_)
+        self.df = spark.read.load(path, format=format_)
         end = time.time()
         print(end - start)
         self.write_file("READ: " + str(end-start) + "\n")
