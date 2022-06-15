@@ -11,7 +11,7 @@ class time_test:
         self.log_file.write(x)
         self.log_file.close()
 
-    def read_time(path, format_='csv'):
+    def read_time(self, path, format_='csv'):
         start = time.time()
         df = spark.read.load(path, format=format_)
         end = time.time()
@@ -19,58 +19,58 @@ class time_test:
         self.write_file("READ: " + str(end-start) + "\n")
         return df
 
-    def show_time(df):
+    def show_time(self):
         start = time.time()
-        df.show()
+        self.df.show()
         end = time.time()
         self.write_file("SHOW: " + str(end-start) + "\n")
         print(end - start)
 
-    def count_time(df):
+    def count_time(self):
         start = time.time()
-        df.count()
+        self.df.count()
         end = time.time()
         self.write_file("COUNT: " + str(end-start) + "\n")
         print(end - start)
 
-    def select_show_time(df, col):
+    def select_show_time(self, col):
         start = time.time()
-        df.select(col).show()
+        self.df.select(col).show()
         end = time.time()
         self.write_file("SELECT SHOW: " + str(end-start) + "\n")
         print(end - start)
 
-    def distinct_show_time(df, col):
+    def distinct_show_time(self, col):
         start = time.time()
-        df.select(col).distinct().show()
+        self.df.select(col).distinct().show()
         end = time.time()
         self.write_file("DISTINCT SHOW: " + str(end-start) + "\n")
         print(end -start)
 
-    def select_count_time(df, col):
+    def select_count_time(self, col):
         start = time.time()
-        df.select(col).count()
+        self.df.select(col).count()
         end = time.time()
         self.write_file("SELECT COUNT: " + str(end-start) + "\n")
         print(end - start)
 
-    def distinct_count_time(df, col):
+    def distinct_count_time(self, col):
         start = time.time()
-        df.select(col).distinct().count()
+        self.df.select(col).distinct().count()
         end = time.time()
         self.write_file("DISTINCT COUNT: " + str(end-start) + "\n")
         print(end -start)
 
-    def filter_show_time(df, col, val):
+    def filter_show_time(self, col, val):
         start = time.time()
-        df.filter(df[col] > val).show()
+        self.df.filter(df[col] > val).show()
         end = time.time()
         self.write_file("FILTER SHOW: " + str(end-start) + "\n")
         print(end - start)
 
-    def filter_count_time(df, col, val):
+    def filter_count_time(self, col, val):
         start = time.time()
-        df.filter(df[col] > val).count()
+        self.df.filter(df[col] > val).count()
         end = time.time()
         self.write_file("FILTER COUNT: " + str(end-start) + "\n")
         print(end - start)
