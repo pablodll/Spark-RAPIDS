@@ -3,7 +3,7 @@ import time
 class time_test:
     
     def __init__(self, log_path, dataframe=None):
-        self.log_paht = log_path
+        self.log_path = log_path
         self.df = dataframe
     
     def write_file(self, x):
