@@ -18,11 +18,11 @@ class time_test:
         end = time.time()
         total = str(end - start)
         print(total)
-        self.write_file(total)
         
         self.df_size = subprocess.check_output(['du','-sh', path]).split()[0].decode('utf-8')
         self.df_path = path
         
+        self.write_file(total)
         return self.df
 
     def SHOW(self):
