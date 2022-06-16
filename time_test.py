@@ -55,7 +55,7 @@ class time_test:
 
     def distinct_count_time(self):
         start = time.time()
-        self.df..distinct().count()
+        self.df.distinct().count()
         end = time.time()
         self.write_file("DISTINCT COUNT: " + str(end-start) + "\n")
         print(end -start)
