@@ -1,4 +1,6 @@
 import time
+import inspect
+import subprocess
 class time_test:
     
     def __init__(self, log_path, dataframe=None):
@@ -7,19 +9,23 @@ class time_test:
     
     def write_file(self, x):
         self.log_file = open(self.log_path, 'a')
-        self.log_file.write(inspect.stack()[1].function + x + '\n')
+        self.log_file.write("[{path} ({size})] -> {fun}: {time} \n".format(path=self.df_path, size=self.df_size, fun=inspect.stack()[1].function, time=x))
         self.log_file.close()
 
-    def read_time(self, path, format_='csv'):
+    def READ(self, path, format_='csv'):
         start = time.time()
         self.df = spark.read.load(path, format=format_)
         end = time.time()
         total = str(end - start)
         print(total)
         self.write_file(total)
+        
+        self.df_size = subprocess.check_output(['du','-sh', path]).split()[0].decode('utf-8')
+        self.df_path = path
+        
         return self.df
 
-    def show_time(self):
+    def SHOW(self):
         start = time.time()
         self.df.show()
         end = time.time()
@@ -27,7 +33,7 @@ class time_test:
         print(total)
         self.write_file(total)
 
-    def count_time(self):
+    def COUNT(self):
         start = time.time()
         self.df.count()
         end = time.time()
@@ -35,7 +41,7 @@ class time_test:
         print(total)
         self.write_file(total)
 
-    def select_show_time(self, col):
+    def SELECT_SHOW(self, col):
         start = time.time()
         self.df.select(col).show()
         end = time.time()
@@ -43,7 +49,7 @@ class time_test:
         print(total)
         self.write_file(total)
 
-    def distinct_show_time(self):
+    def DISTINCT_SHOW(self):
         start = time.time()
         self.df.distinct().show()
         end = time.time()
@@ -51,7 +57,7 @@ class time_test:
         print(total)
         self.write_file(total)
 
-    def select_count_time(self, col):
+    def SELECT_COUNT(self, col):
         start = time.time()
         self.df.select(col).count()
         end = time.time()
@@ -59,7 +65,7 @@ class time_test:
         print(total)
         self.write_file(total)
 
-    def distinct_count_time(self):
+    def DISTINCT_COUNT(self):
         start = time.time()
         self.df.distinct().count()
         end = time.time()
@@ -67,7 +73,7 @@ class time_test:
         print(total)
         self.write_file(total)
 
-    def filter_show_time(self, col, val):
+    def FILTER_SHOW(self, col, val):
         start = time.time()
         self.df.filter(df[col] > val).show()
         end = time.time()
@@ -75,7 +81,7 @@ class time_test:
         print(total)
         self.write_file(total)
 
-    def filter_count_time(self, col, val):
+    def FILTER_COUNT(self, col, val):
         start = time.time()
         self.df.filter(df[col] > val).count()
         end = time.time()
