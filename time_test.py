@@ -1,6 +1,9 @@
 import time
 import inspect
 import subprocess
+from os import listdir
+import re
+
 class time_test:
     
     def __init__(self, log_path=None, dataframe=None):
@@ -89,5 +92,28 @@ class time_test:
         total = str(end - start)
         print(total)
         self.write_file(total)
+        
+    def run_tests(dfs=None):
+        if dfs is None:
+            dfs = [d for d in listdit('./') i re.search('DF_*')]
+
+        for d in dfs:
+            print(d)
+            df = self.READ(d)
+            df = self.READ(d)
+
+            self.COUNT()
+            self.COUNT()
+
+            self.SELECT_COUNT("_c3")
+            self.SELECT_COUNT("_c3")
+
+            self.DISTINCT_COUNT()
+            self.DISTINCT_COUNT()
+
+            self.FILTER_COUNT("_c1", 110)
+            self.FILTER_COUNT("_c1", 110)
+
+        print("DONE")
 
 
