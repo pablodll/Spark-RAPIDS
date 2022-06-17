@@ -3,14 +3,15 @@ import inspect
 import subprocess
 class time_test:
     
-    def __init__(self, log_path, dataframe=None):
+    def __init__(self, log_path=None, dataframe=None):
         self.log_path = log_path
         self.df = dataframe
     
     def write_file(self, x):
-        self.log_file = open(self.log_path, 'a')
-        self.log_file.write("[{path} ({size})] -> {fun}: {time} \n".format(path=self.df_path, size=self.df_size, fun=inspect.stack()[1].function, time=x))
-        self.log_file.close()
+        if self.log_path is not None:
+            self.log_file = open(self.log_path, 'a')
+            self.log_file.write("[{path} ({size})] -> {fun}: {time} \n".format(path=self.df_path, size=self.df_size, fun=inspect.stack()[1].function, time=x))
+            self.log_file.close()
 
     def READ(self, path, format_='csv'):
         start = time.time()
