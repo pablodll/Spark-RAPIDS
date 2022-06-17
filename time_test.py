@@ -93,7 +93,7 @@ class time_test:
         print(total)
         self.write_file(total)
         
-    def run_tests(dfs=None):
+    def run_tests(self, dfs=None):
         if dfs is None:
             dfs = [d for d in listdit('./') if re.search('DF_*')]
 
