@@ -99,8 +99,8 @@ class time_test:
 
         for d in dfs:
             print(d)
-            df = self.READ(d)
-            df = self.READ(d)
+            self.READ(d)
+            self.READ(d)
 
             self.COUNT()
             self.COUNT()
