@@ -79,7 +79,7 @@ class time_test:
 
     def FILTER_SHOW(self, col, val):
         start = time.time()
-        self.df.filter(df[col] > val).show()
+        self.df.filter(self.df[col] > val).show()
         end = time.time()
         total = str(end - start)
         print(total)
@@ -87,7 +87,7 @@ class time_test:
 
     def FILTER_COUNT(self, col, val):
         start = time.time()
-        self.df.filter(df[col] > val).count()
+        self.df.filter(self.df[col] > val).count()
         end = time.time()
         total = str(end - start)
         print(total)
