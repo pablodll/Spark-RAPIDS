@@ -95,7 +95,7 @@ class time_test:
         
     def run_tests(self, dfs=None):
         if dfs is None:
-            dfs = [d for d in listdir('./') if re.search('DF_*', d)]
+            dfs = sorted([d for d in listdir('./') if re.search('DF_*', d)])
 
         for d in dfs:
             print(d)
