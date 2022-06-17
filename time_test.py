@@ -100,18 +100,13 @@ class time_test:
         for d in dfs:
             print(d)
             self.READ(d)
-            self.READ(d)
 
-            self.COUNT()
             self.COUNT()
 
             self.SELECT_COUNT("_c3")
-            self.SELECT_COUNT("_c3")
 
             self.DISTINCT_COUNT()
-            self.DISTINCT_COUNT()
 
-            self.FILTER_COUNT("_c1", 110)
             self.FILTER_COUNT("_c1", 110)
 
         print("DONE")
