@@ -21,3 +21,9 @@ Ciertas operaciones en Spark pueden acelerarse haciendo uso de GPUs gracias a la
 
 ### Pruebas con medición de tiempo
 - En [```time_test.py```](https://github.com/pablodll/Spark-RAPIDS/blob/main/time_test.py) se implementa una clase que proporciona varios métodos básicos para tratar con dataframes de Spark (_read, show, count, select_...) que miden el tiempo de ejecución de cada prueba. Además, existe la opción de guardar los resultados en un fichero de log.
+  - En este fichero se proporciona el método ```run_tests()``` que recibe una lista de nombres de dataframes o busca todos los dataframes existentes con nombre _DF\_*_ y ejecuta una serie de pruebas básicas, mostrando el tiempo empleado en cada una y escribiéndolo en el fichero de log.
+  > Ejemplo:
+  >```python
+  > t = time_test("log.txt")
+  > t.run_tests()
+  >```
