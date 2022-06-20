@@ -108,7 +108,9 @@ class time_test:
             self.DISTINCT_COUNT()
 
             self.FILTER_COUNT("_c1", 110)
-
+            
+            self.write_file('----------------------------------------')
+            
         print("DONE")
 
 
