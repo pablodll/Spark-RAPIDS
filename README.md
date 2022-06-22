@@ -12,12 +12,13 @@ Ciertas operaciones en Spark pueden acelerarse haciendo uso de GPUs gracias a la
 - Para cargar los ficheros de python y usarlos en spark: `exec(open("file").read())`
 
 ### Generación de datos sintéticos
-- Ejecutar desde PySpark el método `datagen()` de [`datagen.py`](https://github.com/pablodll/Spark-RAPIDS/blob/main/datagen.py) especificando el número de líneas a generar, para obtener un dataframe de datos sintéticos siguiendo el esquema especificado en [`schema.json`](https://github.com/pablodll/Spark-RAPIDS/blob/main/schema.json) y escribirlo en disco usando el formato _csv_. 
+- Ejecutar desde PySpark el método `datagen()` de [`datagen.py`](https://github.com/pablodll/Spark-RAPIDS/blob/main/datagen.py) especificando el número de líneas a generar, para obtener un dataframe de datos sintéticos siguiendo el esquema especificado en [`schema.json`](https://github.com/pablodll/Spark-RAPIDS/blob/main/schema.json) y escribirlo en disco usando el formato _csv_.
   > Ejemplo: 
   > ```python
   > from datagen import datagen
   > df = datagen(row_count = 1000) #Generar dataframe de 1000 líneas
   > ``` 
+- Se proporciona un dataset de ejemplo, generado con 1000000 líneas en [DF_6](https://github.com/pablodll/Spark-RAPIDS/tree/main/DF_6)
 
 ### Pruebas con medición de tiempo
 - En [```time_test.py```](https://github.com/pablodll/Spark-RAPIDS/blob/main/time_test.py) se implementa una clase que proporciona varios métodos básicos para tratar con dataframes de Spark (_read, show, count, select_...) que miden el tiempo de ejecución de cada prueba. Además, existe la opción de guardar los resultados en un fichero de log.
