@@ -111,7 +111,7 @@ class time_test:
             
             if self.log_path is not None:
                 self.log_file = open(self.log_path, 'a')
-                self.log_file.write('----------------------------------------')
+                self.log_file.write('----------------------------------------\n')
                 self.log_file.close()
             
         print("DONE")
