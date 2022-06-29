@@ -1,7 +1,7 @@
 import dbldatagen as dg
 import random
 import json
-from pyspark.sql.types import StructType
+from pyspark.sql.types import FloatType, IntegerType, StringType, StructType
 
 def load_schema(file):
     with open(file, 'r') as content_file:
