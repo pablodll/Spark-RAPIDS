@@ -26,5 +26,5 @@ def datagen(row_count, path="DATAGEN_DF", schema='schema.json', format_='csv'):
                 )
     df = dataspec.build()
 #     df.write.format(format_).option('header', True).mode('overwrite').save(path)
-    df.write.mode('overwrite').option("header",true).csv(path)
+    df.write.mode('overwrite')..options(Map("header"->"true", "delimiter"->",")).csv(path)
     return df
