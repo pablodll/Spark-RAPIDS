@@ -93,9 +93,9 @@ class time_test:
         print(total)
         self.write_file(total)
         
-    def JOIN(self, _other, _on):
+    def JOIN(self, df_A, df_B, _on):
         start = time.time()
-        df = self.df.join(_other, _on)
+        df = df_A.join(df_B, _on)
         end = time.time()
         total = str(end - start)
         print(total)
@@ -103,12 +103,14 @@ class time_test:
         return df
     
     def run_tests(self, dfs=None):
+        
         if dfs is None:
             dfs = sorted([d for d in listdir('./') if re.search('DF_*', d)])
 
+        aux = self.READ("AUX_DF")
         for d in dfs:
             print(d)
-            self.READ(d)
+            df = self.READ(d)
 
             self.COUNT()
 
@@ -116,7 +118,9 @@ class time_test:
 
             self.DISTINCT_COUNT()
 
-            self.FILTER_COUNT("_c1", 110)
+            self.FILTER_COUNT("cod_entidad_or", 110)
+            
+            self.JOIN(df, aux, "cod_entidad_or")
             
             if self.log_path is not None:
                 self.log_file = open(self.log_path, 'a')
