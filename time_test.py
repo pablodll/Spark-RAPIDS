@@ -93,6 +93,15 @@ class time_test:
         print(total)
         self.write_file(total)
         
+    def JOIN(self, _other, _on):
+        start = time.time()
+        df = self.df.join(_other, _on)
+        end = time.time()
+        total = str(end - start)
+        print(total)
+        self.write_file(total)
+        return df
+    
     def run_tests(self, dfs=None):
         if dfs is None:
             dfs = sorted([d for d in listdir('./') if re.search('DF_*', d)])
