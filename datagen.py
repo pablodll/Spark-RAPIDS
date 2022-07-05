@@ -28,3 +28,14 @@ def datagen(row_count, path="DATAGEN_DF", schema='schema.json', format_='csv'):
     df.write.format(format_).option('header', True).mode('overwrite').save(path)
 #     df.write.mode('overwrite').csv(path, header=True)
     return df
+
+def aux_datagen(column, name="cod_entidad_or" path="AUX_DF", format_='csv'):
+    column_ls = column.rdd.flatMap(lambda x : x).collect()
+    dataspec = (dg.DataGenerator(spark, rows=len(column_ls), randomSeed=random.randint(0, len(column_ls))))
+    dataspec = (dataspec
+                    .withColumn('id_'+name, minValue=1, maxValue=len(column_ls), step=1, format='ID%04d')
+                    .withColumn(name, IntegerType(), values=column_ls)
+                )
+    df = dataspec.build()
+    df.write.format(format_).option('header', True).mode('overwrite').save(path)
+    return df
