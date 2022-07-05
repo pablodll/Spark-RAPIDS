@@ -114,7 +114,7 @@ class time_test:
 
             self.COUNT()
 
-            self.SELECT_COUNT("_c3")
+            self.SELECT_COUNT("cod_persona")
 
             self.DISTINCT_COUNT()
 
