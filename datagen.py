@@ -14,7 +14,7 @@ def datagen(row_count, path="DATAGEN_DF", schema='schema.json', format_='csv'):
     table_schema = load_schema(schema)
     dataspec = (dg.DataGenerator(spark, rows=row_count, randomSeed=random.randint(0, row_count)).withSchema(table_schema))
     dataspec = (dataspec
-                    .withIdOutput()
+#                     .withIdOutput()
                     .withColumnSpec("fn_periodo", values=[0])
                     .withColumnSpec("cod_entidad_or", uniqueValues=276, random=True)  
                     .withColumnSpec("cod_operacion", uniqueValues=51356072, random=True)
