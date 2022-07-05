@@ -18,7 +18,7 @@ class time_test:
 
     def READ(self, path, format_='csv'):
         start = time.time()
-        self.df = spark.read.load(path, format=format_)
+        self.df = spark.read.load(path, format=format_, header=True)
         end = time.time()
         total = str(end - start)
         print(total)
