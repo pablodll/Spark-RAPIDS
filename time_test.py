@@ -107,7 +107,7 @@ class time_test:
         if dfs is None:
             dfs = sorted([d for d in listdir('./') if re.search('DF_*', d)])
 
-        aux = self.READ("AUX")
+        aux = self.READ("AUX_DF")
         for d in dfs:
             print(d)
             df = self.READ(d)
