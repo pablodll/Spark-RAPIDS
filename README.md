@@ -18,7 +18,7 @@ Ciertas operaciones en Spark pueden acelerarse haciendo uso de GPUs gracias a la
   > from datagen import datagen
   > df = datagen(row_count = 1000) #Generar dataframe de 1000 líneas
   > ``` 
-- [DF_6](https://github.com/pablodll/Spark-RAPIDS/tree/main/DF_6): dataset de ejemplo, generado con 1000000 líneas.
+- El método `aux_datagen()` de [`datagen.py`](https://github.com/pablodll/Spark-RAPIDS/blob/main/datagen.py) genera un dataframe auxiliar, con los valores de una columna en conncreto y un identificador para cada valor, que puede usarse para realizar operaciones de join o similares.
 
 ### Pruebas con medición de tiempo
 - En [```time_test.py```](https://github.com/pablodll/Spark-RAPIDS/blob/main/time_test.py) se implementa una clase que proporciona varios métodos básicos para tratar con dataframes de Spark (_read, show, count, select_...) que miden el tiempo de ejecución de cada prueba. Además, existe la opción de guardar los resultados en un fichero de log.
